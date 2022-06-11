@@ -16,7 +16,7 @@
               </div>
             </template>
           </template>
-          <template v-slot:footer><img src="@/assets/images/couples.png" alt=""></template>
+          <template v-slot:footer><img src="@/assets/images/couples.jpg" alt=""></template>
         </Card>
       </div>
     </section>
