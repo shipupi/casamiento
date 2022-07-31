@@ -74,7 +74,6 @@ const isOpenInvitation = ref(false)
 
 const openInvitation = () => {
   isOpenInvitation.value = true
-  state.isAudioPlay = true
 }
 
 </script>

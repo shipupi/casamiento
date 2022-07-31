@@ -1,10 +1,10 @@
 <template>
-  <section class="w-full bg-couples bg-cover h-screen">
-    <section class="container-section h-screen grid content-end">
+  <section class="w-full h-screen">
+    <section class="container-section h-screen grid content-center">
       <div 
-        class="animate__animated animate__fadeInUpBig text-gray-100 text-center bg-zinc-500 bg-opacity-50 backdrop-blur-sm rounded-t-3xl px-6 py-10">
+        class="text-center text-black bg-opacity-50 backdrop-blur-sm rounded-3xl pt-20">
         <h1 class="tangerine-font text-title font-bold">{{ couples.join(' & ') }}</h1>
-        <decoration class="fill-amber-400 mx-auto w-3/12 mb-3"></decoration>
+        <img src="@/assets/images/flores.png" class=" w-6/12 md:w-6/12 mx-auto">
         <div class="text-sm">
           <p class="font-medium"></p>
           <p class="font-medium my-2 text-lg">Hola{{ query.first }}!</p>

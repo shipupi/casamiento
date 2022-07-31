@@ -9,7 +9,7 @@
               <div 
                 data-aos="zoom-in"
                 class="w-10/12 text-center text-sm p-4 mx-auto mb-4">
-                <decoration class="w-2/12 mx-auto fill-gray-800"></decoration>
+                <img src="@/assets/images/flores.png" class="w-6/12 md:w-6/12 mx-auto">
                 <p class="satisfy-font text-3xl text-amber-500 text-xl">{{ story.title }}</p>
                 <p class="font-medium mb-0">{{ story.place }}</p>
                 <p class="text-justify">{{ story.description }}</p>

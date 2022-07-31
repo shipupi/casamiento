@@ -34,5 +34,5 @@ button {
 
 /* Global class */
 .container-section {
-	@apply w-full mx-auto md:w-8/12 lg:w-6/12;
+	@apply w-full mx-auto md:w-8/12 lg:w-6/12 w-10/12;
 }

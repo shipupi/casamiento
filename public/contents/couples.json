@@ -1,26 +1,23 @@
 {
 	"couples": [
 		{
-			"name": "Fulan bin Fulan",
-			"sosmed": [
-				{ "icon": "fab fa-instagram", "link": "http://fake.com" },
-				{ "icon": "fab fa-facebook", "link": "http://fake.com" },
-				{ "icon": "fab fa-twitter", "link": "http://fake.com" }
+			"name": "Brian Ail",
+			"social": [
+				{ "icon": "fab fa-instagram", "link": "https://www.instagram.com/brian.ail/" },
+				{ "icon": "fab fa-facebook", "link": "https://www.facebook.com/brian.ail/" }
 			],
-			"parents": ["Fulan", "Fulanah"],
-			"thumb": "/couples/couple-male.jpg",
-			"address": "Komplek Setia Budi Sentosa Blok 12A Nomor 6 Gang Serunai Asri - Brebes, Jawa Timur"
+			"description": "Brian es un salame",
+			"thumb": "/couples/couple-male.png"
 		},
 		{
-			"name": "Fulanah binti Fulan",
-			"sosmed": [
+			"name": "Maria Celeste del Fueyo",
+			"social": [
 				{ "icon": "fab fa-instagram", "link": "http://fake.com" },
 				{ "icon": "fab fa-facebook", "link": "http://fake.com" },
 				{ "icon": "fab fa-twitter", "link": "http://fake.com" }
 			],
-			"parents": ["Fulan", "Fulanah"],
-			"thumb": "/couples/couple-female.jpg",
-			"address": "Komplek Setia Budi Sentosa Blok 12A Nomor 6 Gang Serunai Asri - Brebes, Jawa Timur"
+			"description": "Amorcita es una genia",
+			"thumb": "/couples/couple-female.png"
 		}
 	]
 }
