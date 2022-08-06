@@ -9,19 +9,19 @@
 }
 
 label {
-  @apply w-full text-gray-600 font-medium;
+  @apply text-gray-600 font-medium;
 }
 
 input, textarea, select, option {
-  @apply w-full px-2 py-3 rounded-lg bg-gray-800 border border-gray-100 shadow-lg duration-300 focus:border-gray-500 text-gray-200 placeholder:text-gray-400;
+  @apply px-2 py-3 rounded-lg bg-gray-800 border border-gray-100 shadow-lg duration-300 focus:border-gray-500 text-gray-200 placeholder:text-gray-400;
 }
 
 </style>
 
 <template>
-  <section class="w-full bg-slate-100 pt-5">
-    <section class="container-section bg-slate-100">
-      <HeaderSection title="Buku Tamu" subtitle="Demi kelancaran acara dimohon untuk para tamu undangan untuk memastikan kehadirannya pada acara kami" />
+  <section class="w-full xl:bg-slate-100 pt-5">
+    <section class="container-section xl:bg-slate-100">
+      <HeaderSection title="Confirma tu asistencia!" subtitle="Para la tranquilidad del evento, se solicita a los invitados que aseguren su asistencia a nuestro evento." />
       <!-- Form -->
       <form 
         ref="form"
@@ -31,38 +31,46 @@ input, textarea, select, option {
         <Alert :statusResponse="statusResponse" :showAlert="showAlert" v-on:close="showAlert = false" />
         <!-- Guest Name -->
         <div class="input-wrapper" data-aos="zoom-in">
-          <label for="GuestName">Nama</label>
-          <input v-model="GuestName" placeholder="Nama lengkap anda" name="GuestName" id="GuestName" type="text" required>
+          <label class="w-full" for="Nombre">Nombre</label>
+          <input class="w-full" v-model="Nombre" placeholder="Tu nombre completo" name="Nombre" id="Nombre" type="text" required>
         </div>
+        <input type="hidden" id="Fecha" name="Fecha" v-model="Fecha"> 
         <!-- Guest Status -->
         <div class="input-wrapper" data-aos="zoom-in">
-          <label for="GuestStatus">Kehadiran</label>
-          <select v-model="GuestStatus" name="GuestStatus" id="GuestStatus" required>
-            <option value="Hadir">Hadir</option>
-            <option value="Tidak Hadir">Tidak Hadir</option>
+          <label class="w-full" for="Estado">Presencia</label>
+          <select class="w-full" v-model="Estado" name="Estado" id="Estado" required>
+            <option value="Presente">Presente</option>
+            <option value="Ausente">Ausente</option>
           </select>
+        </div>
+        <label class="w-full text-bold" >Especificaciones Alimenticias</label>
+        <div class="input-wrapper flex flex-col" data-aos="zoom-in">
+          <div v-for="food in foods" :key="food" class="flex items-center align-center">
+            <input class="mr-1" type="checkbox" :id="food" :value="food" v-model="Dieta"/>
+            <label class="w-auto" :for="food">{{food}}</label>
+          </div>
         </div>
         <!-- Guest Message -->
         <div class="input-wrapper" data-aos="zoom-in">
-          <label for="GuestMessage">Pesan</label>
-          <textarea placeholder="Tuliskan pesan anda disini" v-model="GuestMessage" name="GuestMessage" id="GuestMessage" cols="30" rows="5" required></textarea>
+          <label class="w-full" for="Comentarios">Comentario</label>
+          <textarea class="w-full" placeholder="Si necesitas dejar un comentario, aca podes hacerlo" v-model="Comentarios" name="Comentarios" id="Comentarios" cols="30" rows="5"></textarea>
         </div>
-        {{ query }}
         <!-- Submit -->
-        <button 
+        <button
+          :disabled="sending" 
           data-aos="zoom-in"
-          class="w-full bg-gray-800 text-gray-100 mt-6 rounded-lg py-2 font-medium pointer active:scale-90 hover:border border-gray-500 hover:bg-gray-100 hover:text-green-500 duration-300" type="submit">
-          <i class="fa fa-paper-plane mr-1"></i>
-          Kirim pesan
+          class="w-full bg-gray-800 text-gray-100 mt-6 rounded-lg py-2 font-medium pointer active:scale-90 border-gray-500 duration-300" type="submit">
+          <i v-if="!sending" class="fa fa-paper-plane mr-1"></i>
+          <i v-else class="fa fa-spinner fa-spin mr-1"></i>
+          Confirmar asistencia
         </button>
       </form>
       <!-- Gift Section -->
-      <Gift></Gift>
       <!-- Message Box -->
       <!--MessagesBox :messages="messages" -->
       <!-- Frames -->
       <div class="w-full text-center pb-12 mt-12">
-        <p class="text-sm text-amber-600 font-medium">Diundang &copy; 2022</p>
+        <p class="text-sm text-amber-600 font-medium">Shipupi &copy; 2022</p>
       </div>
     </section>
   </section>
@@ -70,6 +78,7 @@ input, textarea, select, option {
 
 <script setup>
 
+import { computed } from 'vue'
 import { ref } from 'vue'
 import { useRoute } from 'vue-router'
 import axios from 'axios'
@@ -79,37 +88,43 @@ import Alert from '@/components/Alert.vue'
 
 // Form handler
 const form = ref(null)
-const GuestName = ref(null)
-const GuestMessage= ref(null)
-const GuestStatus = ref('Hadir')
-
+const Nombre = ref(null)
+const Comentarios= ref(null)
+const Estado = ref('Presente')
+const Fecha = ref(new Date())
+const Dieta = ref([]);
+const foods = ref([
+  'Vegetariano', 'Kosher', 'Celiaco', 'Menu Infantil (Menor a 5 años)', 'Otro (Agregar en comentarios)'
+])
 // Alert handler
 const statusResponse = ref(false)
 const showAlert = ref(false)
 
+const sending = ref(false)
+
 //URL
-const scriptURL = "https://script.google.com/macros/s/AKfycbzPgWJ7760OwwRlvjhrBMSM9HTVJL2wjDnDB3Up9ZOEIm09LMBwpmSpkQ6eGjAPGPCH/exec"
+const scriptURL = "https://script.google.com/macros/s/AKfycby1ovbqWQ5T5wkb8zGGA7oK8Qv3nMUtLz1us1SwIAF7H0H0NwQtaoB7N3RptNZElaqP/exec"
 const sendMessage = ( evt ) => {
+  if (sending.value) {
+    return;
+  }
   evt.preventDefault()
-  
-  setTimeout( () => {
-    // Post form
-    fetch(scriptURL, { method: 'POST', body: new FormData(form.value)})
-      .then( res => {
-        console.log('Success: ', res)
-        statusResponse.value = true
-        showAlert.value = true
-       })
-      .catch( err => {
-        console.log('Error: ', err)
-        statusResponse.value = false
-        showAlert.value = true
+  sending.value = true;
+  // Post form
+  const formData = new FormData(form.value);
+  formData.append('Dieta', Dieta.value.join(', '))
+  fetch(scriptURL, { method: 'POST', body:formData})
+    .then( res => {
+      sending.value = false;
+      statusResponse.value = true
+      showAlert.value = true
       })
-  }, 500)
+    .catch( err => {
+      sending.value = true;
+      statusResponse.value = false
+      showAlert.value = true
+    })
+
+
 }
-
-// Auto fill guest name with route.query
-const route = useRoute()
-if ( route.query.to ) GuestName.value = route.query.to
-
 </script>

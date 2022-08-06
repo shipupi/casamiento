@@ -1,5 +1,5 @@
 <template>
-  <section class="w-full bg-slate-100">
+  <section class="w-full xl:bg-slate-100">
     <section class="w-full px-0">
       <viewer :images="galleries">
         <div class="flex flex-wrap">
@@ -12,7 +12,7 @@
         </div>
       </viewer>
       <!-- Our Story -->
-      <OurStory class="mt-10"></OurStory>
+      <!-- <OurStory class="mt-10"></OurStory> -->
       <!-- Our Video -->
       <OurVideo class="mt-10"></OurVideo>
     </section>
@@ -25,7 +25,7 @@ import axios from 'axios'
 import { ref, onMounted } from 'vue'
 import HeaderSection from '@/components/HeaderSection.vue'
 import OurVideo from '@/components/OurVideo.vue'
-import OurStory from '@/components/OurStory.vue'
+// import OurStory from '@/components/OurStory.vue'
 import wave from '@/assets/svg/wave.svg'
 
 const galleries = ref(null)

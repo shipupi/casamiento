@@ -12,9 +12,8 @@
 		{
 			"name": "Maria Celeste del Fueyo",
 			"social": [
-				{ "icon": "fab fa-instagram", "link": "http://fake.com" },
-				{ "icon": "fab fa-facebook", "link": "http://fake.com" },
-				{ "icon": "fab fa-twitter", "link": "http://fake.com" }
+				{ "icon": "fab fa-instagram", "link": "https://www.instagram.com/mariachelu/" },
+				{ "icon": "fab fa-facebook", "link": "https://www.facebook.com/mariaceleste.delfueyo" }
 			],
 			"description": "Amorcita es una genia",
 			"thumb": "/couples/couple-female.png"

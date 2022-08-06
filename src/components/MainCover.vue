@@ -3,13 +3,13 @@
     <section class="container-section h-screen grid content-center">
       <div 
         class="text-center text-black bg-opacity-50 backdrop-blur-sm rounded-3xl pt-20">
+        <h2 class="text-lg font-bold">¡NOS CASAMOS!</h2>
         <h1 class="tangerine-font text-title font-bold">{{ couples.join(' & ') }}</h1>
         <img src="@/assets/images/flores.png" class=" w-6/12 md:w-6/12 mx-auto">
         <div class="text-sm">
           <p class="font-medium"></p>
           <p class="font-medium my-2 text-lg">Hola{{ query.first }}!</p>
-          <p class="font-medium my-2 text-lg">Te invitamos a nuestro</p>
-          <p class="font-medium my-2 text-lg">Casamiento!</p>
+          <p class="font-medium my-2 text-lg">Te invitamos a nuestro Casamiento!</p>
         </div>
       </div>
     </section>

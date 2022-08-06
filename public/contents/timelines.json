@@ -1,6 +1,14 @@
 {
 	"timelines": [
 		{
+			"title": "Civil",
+			"date": "Jueves 6 de Octubre 2022",
+			"time": "11:30 - 13:00",
+			"location": "Municipalidad de San Isidro",
+			"address": "Av. Centenario 77, San Isidro",
+			"mapUrl": "https://goo.gl/maps/8w5J2xYQYh8qqeDZ6"
+		},
+		{
 			"title": "Ceremonia",
 			"date": "Sabado 8 de Octubre 2022",
 			"time": "19:30 - 21:00",
