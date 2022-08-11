@@ -6,7 +6,7 @@
           <template
             v-for="src in galleries" :key="src" data-aos="zoom-in">
             <div data-aos="fade-up" class="w-4/12">
-              <img :src="src" class="w-full" :alt="src" />
+              <img :src="src" class="w-full h-full" :alt="src" />
             </div>
           </template>
         </div>
@@ -14,7 +14,7 @@
       <!-- Our Story -->
       <!-- <OurStory class="mt-10"></OurStory> -->
       <!-- Our Video -->
-      <OurVideo class="mt-10"></OurVideo>
+      <!-- <OurVideo class="mt-10"></OurVideo> -->
     </section>
   </section>
 </template>

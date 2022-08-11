@@ -1,7 +1,7 @@
 <template>
   <section class="w-full bg-cream">
     <section class="container-section">
-      <HeaderSection text-color="text-black" title="El novia y la novia" subtitle="From tonight until the end of time" />
+      <HeaderSection text-color="text-black" title="El novio y la novia" subtitle="From tonight until the end of time" />
       <Profile></Profile>
     </section>
   </section>

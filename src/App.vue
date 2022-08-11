@@ -10,7 +10,7 @@
   <main class="app text-crema">
     <router-view></router-view>
     <!-- Mini Button -->
-    <MiniButton></MiniButton>
+    <!-- <MiniButton></MiniButton> -->
   </main> 
 </template> 
  

@@ -8,10 +8,13 @@
             <img :src="wallet.thumb" :alt="wallet.platform" class="w-5/12 mx-auto mb-3">
             <Clipboard header="CBU" :content="wallet.number"></Clipboard>
             <Clipboard header="Alias" :content="wallet.alias"></Clipboard>
+            <p class="font-bold text-sm text-slate-800">O podes dejarnos un sobrecito</p>
+            <img src="@/assets/images/sobre.png" alt="$$" class="w-5/12 mx-auto mb-3">
           </div>
         </template>
       </section>
     </section>
+    
   </section>
 </template>
 

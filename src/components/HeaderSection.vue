@@ -3,7 +3,7 @@
     <!-- Decoration -->
     <img src="@/assets/images/flores.png" class="w-6/12 md:w-6/12 mx-auto">
     <h1 class="satisfy-font text-4xl font-medium mb-5">{{ props.title }}</h1>
-    <p class="text-sm">{{ subtitle }}</p>
+    <p class="text-sm" v-html="subtitle"/>
   </section>
 </template>
 
