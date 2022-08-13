@@ -21,7 +21,7 @@ input, textarea, select, option {
 <template>
   <section class="w-full xl:bg-slate-100 pt-5">
     <section class="container-section xl:bg-slate-100">
-      <HeaderSection title="Confirma tu asistencia!" subtitle="Para la tranquilidad del evento, se solicita a los invitados que aseguren su asistencia a nuestro evento. <br><span class='text-red-700 font-bold'>Importante: Mandar un formulario por invitado.</span>" />
+      <HeaderSection title="Confirma tu asistencia!" subtitle="Para la tranquilidad del evento, se solicita a los invitados que aseguren su asistencia. <br><span class='text-red-700 font-bold'>Importante: Mandar un formulario por invitado.</span>" />
       <!-- Form -->
       <form 
         ref="form"
