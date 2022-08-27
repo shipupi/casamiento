@@ -27,13 +27,16 @@ option {
         subtitle="Para la tranquilidad del evento, se solicita a los invitados que aseguren su asistencia. <br><span class='text-red-700 font-bold'>Importante: Mandar un formulario por invitado.</span>"
       />
       <!-- Form -->
-      <form ref="form" @submit="sendMessage" class="w-10/12 mx-auto mt-6">
+      <Alert
+        :statusResponse="statusResponse"
+        :showAlert="showAlert"
+        v-on:close="showAlert = false"
+      />
+      <div class="text-center">
+        <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" v-if="sent" @click="sent = false" >Enviar otro</button>
+      </div>
+      <form v-if="!sent" ref="form" @submit="sendMessage" class="w-10/12 mx-auto mt-6">
         <!-- Alert -->
-        <Alert
-          :statusResponse="statusResponse"
-          :showAlert="showAlert"
-          v-on:close="showAlert = false"
-        />
         <!-- Guest Name -->
         <div class="input-wrapper" data-aos="zoom-in">
           <label class="w-full" for="Nombre">Nombre</label>
@@ -158,6 +161,7 @@ const statusResponse = ref(false);
 const showAlert = ref(false);
 
 const sending = ref(false);
+const sent = ref(false);
 
 const firebasePost = () => {
   return new Promise((resolve, reject) => {
@@ -173,6 +177,13 @@ const firebasePost = () => {
   })
 };
 
+const resetForm = () => {
+    Nombre.value = null;
+    Comentarios.value = null
+    Dieta = []
+    Estado = "Presente"
+}
+
 const sendMessage = (evt) => {
   if (sending.value) {
     return;
@@ -185,6 +196,8 @@ const sendMessage = (evt) => {
       sending.value = false;
       statusResponse.value = true;
       showAlert.value = true;
+      sent.value = true;
+      resetForm();
     } else {
       sending.value = true;
       statusResponse.value = false;
