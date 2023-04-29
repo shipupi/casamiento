@@ -7,7 +7,7 @@
 				{ "icon": "fab fa-facebook", "link": "https://www.facebook.com/brian.ail/" }
 			],
 			"description": "El novio",
-			"thumb": "/couples/couple-male.png"
+			"thumb": "/casamiento/couples/couple-male.png"
 		},
 		{
 			"name": "Maria Celeste \"Chelu\" del Fueyo",
@@ -16,7 +16,7 @@
 				{ "icon": "fab fa-facebook", "link": "https://www.facebook.com/mariaceleste.delfueyo" }
 			],
 			"description": "La novia",
-			"thumb": "/couples/couple-female.png"
+			"thumb": "/casamiento/couples/couple-female.png"
 		}
 	]
 }
