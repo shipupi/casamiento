@@ -19,5 +19,5 @@ export default defineConfig({
   server: {
     host: true
   },
-  base: './casamiento/',
+  base: '/casamiento/',
 })
